@@ -1,0 +1,82 @@
+<div class="form-container">
+  <!-- <h1>New Employee</h1> -->
+  <form
+    #form="ngForm"
+    (ngSubmit)="handleSubmit(form.value, form.valid)"
+    novalidate
+  >
+    <button class="close-btn" (click)="closeForm()">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="form-control">
+      <label for="fullName">Employee name:</label>
+
+      <input
+        id="fullName"
+        type="text"
+        name="fullName"
+        required
+        #fullName="ngModel"
+        [ngModel]="detail.fullName"
+      />
+      <div *ngIf="fullName.errors?.required && fullName.dirty" class="error">
+        Employee name is required
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="email">Email:</label>
+
+      <input
+        id="email"
+        type="text"
+        name="email"
+        required
+        #email="ngModel"
+        [ngModel]="detail.email"
+      />
+      <div *ngIf="email.errors?.required && email.dirty" class="error">
+        Employees Email is required
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="phoneNumber">Phone number</label>
+
+      <input
+        id="phoneNumber"
+        type="text"
+        name="phoneNumber"
+        required
+        #phoneNumber="ngModel"
+        [ngModel]="detail.phoneNumber"
+      />
+      <div
+        *ngIf="phoneNumber.errors?.required && phoneNumber.dirty"
+        class="error"
+      >
+        Employee name is required
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="date-picker">Select date of birth</label>
+      <input
+        type="date"
+        required
+        name="dateOfBirth"
+        [ngModel]="detail.dateOfBirth"
+        date
+        id="date-picker"
+      />
+    </div>
+
+    <!-- 
+            <div>
+              Check in date:
+              <input
+                type="number"
+                name="checkInDate"
+                [ngModel]="detail?.checkInDate"
+              /> -->
+
+    <button type="submit" [disabled]="form.invalid">Add employee</button>
+  </form>
+</div>

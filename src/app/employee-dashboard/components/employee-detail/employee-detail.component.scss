@@ -1,0 +1,30 @@
+.employee-detail-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  // margin: 10px;
+  width: 350px;
+
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #9fa4a8;
+  border-radius: 10px;
+  margin: 20px 0;
+
+  .button-wrap button {
+    background-color: transparent;
+    border: none;
+    color: black;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+  }
+  button:focus {
+    outline: none;
+  }
+  .edit-btn:active {
+    transform: scale(0.98);
+  }
+}

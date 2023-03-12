@@ -1,0 +1,22 @@
+<div class="employee-list-wrapper">
+  <button class="add" id="add" (click)="addEmployee()">
+    <i class="fas fa-plus"> </i>
+    Add employee
+  </button>
+  <div class="employee-container">
+    <div *ngFor="let employee of employees">
+      <employee-detail
+        [employee]="employee"
+        (remove)="handleRemove($event)"
+      ></employee-detail>
+    </div>
+  </div>
+
+  <div class="mask" *ngIf="showNewEmployeeForm">
+    <div class="close-mask" (click)="showNewEmployeeForm = false"></div>
+    <new-employee-form
+      (add)="handleAdd($event)"
+      (close)="showNewEmployeeForm = false"
+    ></new-employee-form>
+  </div>
+</div>

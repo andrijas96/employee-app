@@ -1,0 +1,97 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit(form.value, form.valid)" #form="ngForm">
+    <button class="close-btn" (click)="closeForm()">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="form-control">
+      <label for="title">Task title:</label>
+      <input
+        id="title"
+        type="text"
+        name="title"
+        required
+        #title="ngModel"
+        [ngModel]="detail.title"
+      />
+      <div *ngIf="title.errors?.required && title.dirty" class="error">
+        Task title is required
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="title">Task description:</label>
+      <textarea
+        id="description"
+        type="text-area"
+        name="description"
+        required
+        #description="ngModel"
+        [ngModel]="detail.description"
+      ></textarea>
+      <div
+        *ngIf="description.errors?.required && description.dirty"
+        class="error"
+      >
+        Task description is required
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="asignee">Task asignee:</label>
+      <div class="input-icon">
+        <input
+          id="asignee"
+          type="text"
+          name="asignee"
+          required
+          #asignee="ngModel"
+          placeholder="Search..."
+          [ngModel]="detail.asignee"
+          (keydown)="filterEmployees($event)"
+        />
+        <i class="fas fa-search"></i>
+      </div>
+
+      <div
+        class="search-options"
+        *ngIf="showOptions && filteredEmployees.length !== 0"
+      >
+        <div
+          class="option"
+          *ngFor="let employee of filteredEmployees.slice(0, 3)"
+          (click)="setAsignee(employee)"
+        >
+          {{ employee.fullName }}
+        </div>
+      </div>
+
+      <div class="asignee">Asignee: {{ detail.asignee }}</div>
+
+      <div *ngIf="asignee.errors?.required && asignee.dirty" class="error">
+        Task asignee is required
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="date-picker">Select due date: </label>
+      <input
+        type="date"
+        required
+        name="dueDate"
+        [ngModel]="detail.dueDate"
+        date
+        id="date-picker"
+      />
+    </div>
+    <div class="form-control-completed">
+      <span>Completed </span>
+      <input
+        type="checkbox"
+        name="completed"
+        [ngModel]="detail.completed"
+        id="completed"
+      />
+    </div>
+    <button type="submit" [disabled]="form.invalid">Add task</button>
+  </form>
+  {{ form.value | json }}
+</div>

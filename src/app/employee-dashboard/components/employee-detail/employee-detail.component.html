@@ -1,0 +1,18 @@
+<div class="employee-detail-container">
+  <div class="name">
+    {{ employee.fullName }}
+  </div>
+  <div class="email">
+    {{ employee.email }}
+  </div>
+
+  <div class="completed-tasks">Task Completed 100</div>
+  <div class="button-wrap">
+    <button [routerLink]="[employee.id]" class="edit-btn">
+      <i class="fas fa-edit"></i>
+    </button>
+    <button (click)="onRemove()" class="remove-btn">
+      <i class="fas fa-trash-alt"></i>
+    </button>
+  </div>
+</div>

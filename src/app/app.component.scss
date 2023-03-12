@@ -1,0 +1,26 @@
+.app-wrap {
+  height: 100vh;
+  width: 100vw;
+  .nav {
+    margin: 0 0 10px;
+    padding: 0 0 20px;
+    border-bottom: 1px solid #dce5f2;
+    width: 100%;
+    background-color: #3498db;
+    height: 80px;
+    // position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    a {
+      background: #3a4250;
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 2px;
+      &.active {
+        color: #b690f1;
+        background: #363c48;
+      }
+    }
+  }
+}

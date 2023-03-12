@@ -1,0 +1,22 @@
+<div class="task-dashboard-wrap">
+  <button class="add" id="add" (click)="addTask()">
+    <i class="fas fa-plus"> </i>
+    Add task
+  </button>
+  <div class="tasks-container">
+    <div *ngFor="let task of tasks">
+      <task-detail
+        [detail]="task"
+        (remove)="handleRemove($event)"
+      ></task-detail>
+    </div>
+  </div>
+
+  <div class="mask" *ngIf="showNewTaskForm">
+    <div class="close-mask" (click)="showNewTaskForm = false"></div>
+    <new-task-form
+      (add)="handleAdd($event)"
+      (close)="showNewTaskForm = false"
+    ></new-task-form>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+.card {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 350px;
+
+  .card-content {
+    background-color: #fff;
+    padding: 30px;
+    // width: 290px;
+
+    .title-tools {
+      display: flex;
+      justify-content: space-between;
+
+      .card-title {
+        height: 20px;
+        margin: 0;
+      }
+      .tools {
+        button {
+          background-color: transparent;
+          border: none;
+          color: black;
+          cursor: pointer;
+          font-size: 1rem;
+          margin-left: 0.5rem;
+        }
+      }
+    }
+
+    .card-description {
+      color: #777;
+      margin: 15px 0;
+      height: 100px;
+      word-break: break-word;
+    }
+
+    .asignee {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .asignee-img {
+        border-radius: 50%;
+        overflow: hidden;
+        height: 40px;
+        width: 40px;
+      }
+
+      .completed-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        i {
+          font-size: 40px;
+        }
+      }
+    }
+
+    .asignee-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-left: 10px;
+      width: 100px;
+    }
+    small {
+      color: #aaa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
