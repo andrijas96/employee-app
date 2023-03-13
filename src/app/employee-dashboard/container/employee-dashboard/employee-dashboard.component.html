@@ -4,6 +4,15 @@
     Add employee
   </button>
   <div class="employee-container">
+    <div class="employee-detail-container-headers">
+      <div class="name">Name</div>
+      <div class="email">Email</div>
+      <div class="phone-number">Phone number</div>
+      <div class="date-of-birth">Date of birth</div>
+      <div class="salary">Salary</div>
+      <div class="task-completed">Tasks completed</div>
+      <div class="top-5" (click)="sortTop()">Sort Employees</div>
+    </div>
     <div *ngFor="let employee of employees">
       <employee-detail
         [employee]="employee"

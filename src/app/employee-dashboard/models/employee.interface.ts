@@ -4,5 +4,6 @@ export interface Employee {
   email: string;
   phoneNumber: number | undefined;
   dateOfBirth: Date | undefined;
-  salary: number;
+  salary: number | undefined;
+  tasksCompleted: number;
 }

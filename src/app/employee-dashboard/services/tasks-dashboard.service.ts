@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Task } from '../models/task.interface';
 
-// const TASKS_API = '/assets/db.json';
 const TASKS_API = ' http://localhost:3000/Tasks';
 
 @Injectable()
@@ -19,8 +18,6 @@ export class TasksService {
   }
 
   async updateTask(Task: Task): Promise<Task> {
-    // Promise<Task>
-
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
@@ -28,17 +25,12 @@ export class TasksService {
       headers: headers,
     };
 
-    console.log('async updateTask:', Task);
     return this.http
       .put(`${TASKS_API}/${Task.id}`, Task, options)
       .toPromise() as Promise<Task>;
   }
 
-  async addTask(Task: Task): Promise<Task> {
-    console.log('Add Task:', Task);
-    // console.log(await this.getFreeTaskId());
-    Task.id = await this.getFreeTaskId();
-
+  async addTask(task: Task): Promise<Task> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
@@ -47,16 +39,10 @@ export class TasksService {
     };
 
     return this.http
-      .post(`${TASKS_API}`, Task, options)
+      .post(`${TASKS_API}`, task, options)
       .toPromise() as Promise<Task>;
   }
 
-  async getFreeTaskId(): Promise<number> {
-    let id = 1;
-    (await this.getTasks()).forEach((a) => (a.id == id ? id++ : id));
-
-    return id;
-  }
   async removeTask(task: Task): Promise<Task> {
     return this.http
       .delete(`${TASKS_API}/${task.id}`)

@@ -12,12 +12,11 @@ export class NewEmployeeFormComponent implements OnInit {
     id: 0,
     fullName: '',
     email: '',
-    phoneNumber: 123,
+    phoneNumber: undefined,
     dateOfBirth: new Date(),
-    salary: 0,
+    salary: undefined,
+    tasksCompleted: 0,
   };
-
-  constructor(private employeesService: EmployeesService) {}
 
   @Output() add: EventEmitter<Employee> = new EventEmitter<Employee>();
   @Output() close: EventEmitter<void> = new EventEmitter<void>();

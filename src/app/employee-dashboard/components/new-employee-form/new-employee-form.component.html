@@ -35,11 +35,11 @@
         [ngModel]="detail.email"
       />
       <div *ngIf="email.errors?.required && email.dirty" class="error">
-        Employees Email is required
+        Employee Email is required
       </div>
     </div>
     <div class="form-control">
-      <label for="phoneNumber">Phone number</label>
+      <label for="phoneNumber">Phone number:</label>
 
       <input
         id="phoneNumber"
@@ -53,7 +53,22 @@
         *ngIf="phoneNumber.errors?.required && phoneNumber.dirty"
         class="error"
       >
-        Employee name is required
+        Employee number is required
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="salary">Salary:</label>
+
+      <input
+        id="salary"
+        type="text"
+        name="salary"
+        required
+        #salary="ngModel"
+        [ngModel]="detail.salary"
+      />
+      <div *ngIf="salary.errors?.required && salary.dirty" class="error">
+        Salary is required
       </div>
     </div>
     <div class="form-control">
@@ -67,15 +82,6 @@
         id="date-picker"
       />
     </div>
-
-    <!-- 
-            <div>
-              Check in date:
-              <input
-                type="number"
-                name="checkInDate"
-                [ngModel]="detail?.checkInDate"
-              /> -->
 
     <button type="submit" [disabled]="form.invalid">Add employee</button>
   </form>

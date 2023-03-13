@@ -5,14 +5,24 @@
   <div class="email">
     {{ employee.email }}
   </div>
-
-  <div class="completed-tasks">Task Completed 100</div>
+  <div class="phone-number">{{ employee.phoneNumber }}</div>
+  <div class="date-of-birth">{{ employee.dateOfBirth | date : "d/M/yy" }}</div>
+  <div class="salary">{{ employee.salary }}</div>
+  <div class="task-completed">{{ employee.tasksCompleted }}</div>
   <div class="button-wrap">
     <button [routerLink]="[employee.id]" class="edit-btn">
       <i class="fas fa-edit"></i>
     </button>
-    <button (click)="onRemove()" class="remove-btn">
+    <button (click)="prompt()" class="remove-btn">
       <i class="fas fa-trash-alt"></i>
     </button>
+    <div class="prompt" *ngIf="showPrompt">
+      <div class="question">Are you sure?</div>
+      <div class="answers">
+        <button (click)="onRemove()">Yes</button>
+
+        <button (click)="showPrompt = false">No</button>
+      </div>
+    </div>
   </div>
 </div>

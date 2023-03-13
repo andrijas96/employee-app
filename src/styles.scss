@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f0f0f0;
@@ -9,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: auto;
     width: 100vw;
 
     .form-container {
@@ -73,7 +77,6 @@ body {
             margin-bottom: 10px;
             padding: 10px;
             border: 1px solid #ccc;
-            // border-radius: 20px;
             background: #fff;
             font-family: inherit;
           }
@@ -96,7 +99,6 @@ body {
             padding: 5px 5px 1px;
             .option {
               cursor: pointer;
-              //   border-bottom: 1px #ccc solid;
               margin-bottom: 5px;
               background-color: #fff;
               border-radius: 4px;
@@ -132,6 +134,18 @@ body {
           border: 0;
           border-radius: 5px;
           color: #fff;
+        }
+
+        button:disabled {
+          background: #ccc;
+          cursor: auto;
+        }
+        button:disabled:hover {
+          filter: none;
+        }
+
+        button:disabled:active {
+          transform: none;
         }
 
         button:focus {

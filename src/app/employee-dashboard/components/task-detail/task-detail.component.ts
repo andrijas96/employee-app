@@ -9,11 +9,15 @@ import { Task } from '../../models/task.interface';
 export class TaskDetailComponent implements OnInit {
   @Input() detail!: Task;
   @Output() remove: EventEmitter<Task> = new EventEmitter<Task>();
+  showPrompt: boolean = false;
   constructor() {}
 
   ngOnInit(): void {}
-  editTask() {}
+  prompt() {
+    this.showPrompt = true;
+  }
   removeTask() {
+    this.showPrompt = false;
     this.remove.emit(this.detail);
   }
 }

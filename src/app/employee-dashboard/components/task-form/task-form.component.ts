@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Employee } from '../../models/employee.interface';
 import { Task } from '../../models/task.interface';
 import { EmployeesService } from '../../services/employee-dashboard.service';
@@ -19,12 +20,16 @@ export class TaskFormComponent implements OnInit {
     phoneNumber: undefined,
     dateOfBirth: undefined,
     salary: 0,
+    tasksCompleted: 0,
   };
   @Input() detail!: Task;
 
   @Output() update: EventEmitter<Task> = new EventEmitter<Task>();
 
-  constructor(private employeesService: EmployeesService) {}
+  constructor(
+    private employeesService: EmployeesService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.employeesService.getEmployees().then((data: Employee[]) => {
@@ -33,7 +38,6 @@ export class TaskFormComponent implements OnInit {
   }
 
   filterEmployees(event: any) {
-    // console.log(event.target.value);
     if (event.target.value.length >= 2) {
       this.showOptions = true;
       this.filteredEmployees = this.employees.filter((employee: Employee) => {
@@ -53,10 +57,10 @@ export class TaskFormComponent implements OnInit {
   }
 
   onSubmit(task: Task, isValid: boolean | null) {
-    console.log(task, isValid);
     if (isValid) {
       task.id = this.detail.id;
       this.update.emit(task);
+      this.router.navigate(['/tasks']);
     }
   }
 }

@@ -1,25 +1,58 @@
 .employee-list-wrapper {
-  margin: 20px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  position: relative;
   margin: 20px 0;
-  .tasks-container {
+  width: 100vw;
+  height: auto;
+  .employee-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    div {
-      margin: 10px;
+    margin: 30px 0 0;
+
+    .employee-detail-container-headers {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      width: 90vw;
+      font-weight: 600;
+      font-size: 16px;
+      color: #fff;
+      background-color: #3498db;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #9fa4a8;
+      border-radius: 10px;
+      margin: 2px 0;
+
+      > div {
+        text-align: center;
+        width: 15%;
+      }
+
+      .top-5 {
+        font-size: 14px;
+        padding: 3px;
+        cursor: pointer;
+        background-color: #246d9f;
+        border-radius: 6px;
+      }
+      .top-5:hover {
+        filter: brightness(110%);
+      }
     }
   }
   .add {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    transform: translate(-10%, -105%);
     background-color: #3498db;
     color: #fff;
     border: none;

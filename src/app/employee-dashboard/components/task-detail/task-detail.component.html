@@ -5,12 +5,20 @@
         {{ detail.title }}
       </h3>
       <div class="tools">
-        <button class="edit" [routerLink]="[detail.id]" (click)="editTask()">
+        <button class="edit" [routerLink]="[detail.id]">
           <i class="fas fa-edit"></i>
         </button>
-        <button class="delete" (click)="removeTask()">
+        <button class="delete" (click)="prompt()">
           <i class="fas fa-trash-alt"></i>
         </button>
+        <div class="prompt" *ngIf="showPrompt">
+          <div class="question">Are you sure?</div>
+          <div class="answers">
+            <button (click)="removeTask()">Yes</button>
+
+            <button (click)="showPrompt = false">No</button>
+          </div>
+        </div>
       </div>
     </div>
     <p class="card-description">

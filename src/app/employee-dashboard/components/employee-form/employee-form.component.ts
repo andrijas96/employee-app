@@ -18,6 +18,7 @@ export class EmployeeFormComponent implements OnInit {
   handleSubmit(employee: Employee, isValid: boolean | any) {
     if (isValid) {
       employee.id = this.detail.id;
+      employee.tasksCompleted = this.detail.tasksCompleted;
       this.update.emit(employee);
     }
   }

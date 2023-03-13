@@ -9,7 +9,14 @@ import { TasksService } from '../../services/tasks-dashboard.service';
   styleUrls: ['./task-viewer.component.scss'],
 })
 export class TaskViewerComponent implements OnInit {
-  task!: Task;
+  task: Task = {
+    id: 0,
+    title: '',
+    description: '',
+    asignee: '',
+    dueDate: undefined,
+    completed: false,
+  };
   constructor(
     private tasksService: TasksService,
     private route: ActivatedRoute
@@ -26,6 +33,5 @@ export class TaskViewerComponent implements OnInit {
     this.tasksService.updateTask(event).then((data: Task) => {
       this.task = Object.assign({}, this.task, event);
     });
-    // console.log(event);
   }
 }

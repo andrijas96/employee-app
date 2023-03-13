@@ -19,6 +19,7 @@ export class NewTaskFormComponent implements OnInit {
     phoneNumber: undefined,
     dateOfBirth: undefined,
     salary: 0,
+    tasksCompleted: 0,
   };
 
   detail: Task = {
@@ -26,7 +27,7 @@ export class NewTaskFormComponent implements OnInit {
     title: '',
     description: '',
     asignee: '',
-    dueDate: new Date(),
+    dueDate: undefined,
     completed: false,
   };
 
@@ -42,7 +43,6 @@ export class NewTaskFormComponent implements OnInit {
   }
 
   filterEmployees(event: any) {
-    // console.log(event.target.value);
     if (event.target.value.length >= 2) {
       this.showOptions = true;
       this.filteredEmployees = this.employees.filter((employee: Employee) => {
@@ -62,7 +62,6 @@ export class NewTaskFormComponent implements OnInit {
   }
 
   onSubmit(task: Task, isValid: boolean | null) {
-    console.log(task, isValid);
     if (isValid) {
       task.id = this.detail.id;
       this.add.emit(task);

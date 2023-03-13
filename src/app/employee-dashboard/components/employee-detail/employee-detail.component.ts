@@ -9,10 +9,15 @@ import { Employee } from 'src/app/employee-dashboard/models/employee.interface';
 export class EmployeeDetailComponent implements OnInit {
   @Input() employee!: Employee;
   @Output() remove: EventEmitter<Employee> = new EventEmitter<Employee>();
+  showPrompt: boolean = false;
   constructor() {}
 
   ngOnInit(): void {}
+  prompt() {
+    this.showPrompt = true;
+  }
   onRemove() {
+    this.showPrompt = false;
     this.remove.emit(this.employee);
   }
 }

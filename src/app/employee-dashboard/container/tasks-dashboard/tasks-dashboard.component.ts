@@ -17,15 +17,23 @@ export class TasksDashboardComponent implements OnInit {
   }
 
   addTask() {
-    console.log('ok');
     this.showNewTaskForm = true;
   }
 
+  getFreeTaskId() {
+    let id =
+      Math.max.apply(
+        null,
+        this.tasks.map((c) => c.id)
+      ) + 1;
+
+    return id;
+  }
+
   handleAdd(event: Task) {
-    console.log('handleAdd: ', event);
+    event.id = this.getFreeTaskId();
     this.tasksService.addTask(event).then((data: Task) => {
       this.tasks.unshift(data);
-      // this.tasks.unshift
     });
     this.showNewTaskForm = false;
   }

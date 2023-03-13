@@ -1,73 +1,86 @@
 {
   "employees": [
     {
-      "fullName": "123",
-      "email": "123",
-      "phoneNumber": "123",
+      "fullName": "Andrija Stevanovic",
+      "email": "employee@mail.com",
+      "phoneNumber": "060123123",
+      "salary": 500,
       "dateOfBirth": "1996-09-06",
-      "id": 1
+      "id": 1,
+      "tasksCompleted": 200
     },
     {
       "fullName": "xa test",
-      "email": "za test",
-      "phoneNumber": 123,
+      "email": "employeez@mail.com",
+      "phoneNumber": "060123123123",
       "dateOfBirth": "2023-03-10T20:46:15.809Z",
-      "id": 4
+      "salary": 500,
+      "id": 9,
+      "tasksCompleted": 100
     },
     {
       "fullName": "xa test",
-      "email": "za test",
-      "phoneNumber": 123,
+      "email": "employeez@mail.coma test",
+      "phoneNumber": "060123123123",
       "dateOfBirth": "2023-03-10T20:46:15.809Z",
-      "id": 5
+      "salary": 500,
+      "id": 5,
+      "tasksCompleted": 300
     },
     {
       "fullName": "xa test",
-      "email": "za test",
-      "phoneNumber": 123,
+      "email": "employeez@mail.coma test",
+      "phoneNumber": "060123123123",
       "dateOfBirth": "2023-03-12T20:47:09.128Z",
-      "id": 6
+      "salary": 500,
+      "id": 6,
+      "tasksCompleted": 500
     },
     {
-      "fullName": "Najnoviji",
-      "email": "za test",
-      "phoneNumber": 123,
-      "dateOfBirth": "2023-03-15",
-      "id": 7
+      "fullName": "Andrija",
+      "email": "employeeA@mail.comndrija Stevanovi",
+      "phoneNumber": "060123123123",
+      "salary": 0,
+      "dateOfBirth": "2023-03-10",
+      "id": 2,
+      "tasksCompleted": 400
+    },
+    {
+      "fullName": "1",
+      "email": "employee1@mail.com",
+      "phoneNumber": "0601231231",
+      "salary": "1",
+      "dateOfBirth": "0001-01-01",
+      "id": 3,
+      "tasksCompleted": 0
+    },
+    {
+      "fullName": "1",
+      "email": "employee1@mail.com2",
+      "phoneNumber": "06012312312",
+      "salary": "123",
+      "dateOfBirth": "12121-12-12",
+      "id": 4,
+      "tasksCompleted": 0
+    },
+    {
+      "fullName": "b",
+      "email": "employeeb@mail.com",
+      "phoneNumber": "060123123b",
+      "salary": "12",
+      "dateOfBirth": "2023-03-13T02:57:04.281Z",
+      "id": 10,
+      "tasksCompleted": 0
     }
   ],
   "tasks": [
     {
-      "title": "Novi Task123lll",
-      "description": "Promeni boju",
-      "asignee": "Andrija Stevanovic 123",
-      "dueDate": "2023-03-31",
-      "completed": false,
+      "title": "Andrija Stevanovic",
+      "description": "Promeni",
+      "asignee": "Andrija",
+      "dueDate": "2023-03-09",
+      "completed": true,
       "id": 1
-    },
-    {
-      "title": "Novi",
-      "description": "novi",
-      "asignee": "xa test",
-      "dueDate": "2023-03-16",
-      "completed": true,
-      "id": 2
-    },
-    {
-      "title": "Test",
-      "description": "Test123123123",
-      "asignee": "tes",
-      "dueDate": "2023-03-14",
-      "completed": true,
-      "id": 3
-    },
-    {
-      "title": "NajNoviji",
-      "description": "P[a",
-      "asignee": "Najnoviji",
-      "dueDate": "2023-03-23",
-      "completed": true,
-      "id": 4
     }
   ]
 }

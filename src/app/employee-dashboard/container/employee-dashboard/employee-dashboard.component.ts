@@ -14,14 +14,25 @@ export class EmployeeDashboardComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.employees = await this.employeesService.getEmployees();
-    console.log(this.employees);
   }
 
   addEmployee() {
     this.showNewEmployeeForm = true;
   }
 
+  getFreeEmployeeId() {
+    let id =
+      Math.max.apply(
+        null,
+        this.employees.map((c) => c.id)
+      ) + 1;
+
+    return id;
+  }
+
   handleAdd(event: Employee) {
+    event.id = this.getFreeEmployeeId();
+    event.tasksCompleted = 0;
     this.employeesService.addEmployee(event).then((data: Employee) => {
       this.employees.unshift(data);
     });
@@ -31,9 +42,14 @@ export class EmployeeDashboardComponent implements OnInit {
   handleRemove(event: Employee) {
     this.employeesService.removeEmployee(event).then((data) => {
       this.employees = this.employees.filter((employee: Employee) => {
-        console.log(event.id);
         return employee.id !== event.id;
       });
     });
+  }
+
+  sortTop() {
+    this.employees = this.employees
+      .sort((a, b) => b.tasksCompleted - a.tasksCompleted)
+      .slice(0, 5);
   }
 }

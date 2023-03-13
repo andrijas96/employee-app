@@ -3,6 +3,6 @@ export interface Task {
   title: string;
   description: string;
   asignee: string;
-  dueDate: Date;
+  dueDate: Date | undefined;
   completed: boolean;
 }
